@@ -9,8 +9,8 @@ class Admin::RestaurantsController < ApplicationController
 
   def index
     #@page = params[:page] || 1
-    @restaurants=Restaurant.order("updated_at DESC").page(params[:page]).per(10)
-    #@restaurants = Restaurant.page(params[:page]).per(10)
+    #@restaurants=Restaurant.order("updated_at DESC").page(params[:page]).per(10)
+    @restaurants = Restaurant.page(params[:page]).per(10)
   end
 
   def new
@@ -38,6 +38,7 @@ class Admin::RestaurantsController < ApplicationController
   def update
     if @restaurant.update(restaurant_params)
       flash[:notice] = "restaurant was successfully updated"
+
       redirect_to admin_restaurants_path(@restaurant)
     else
       flash[:alert] = "restaurant was failed to updated"

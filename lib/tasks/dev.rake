@@ -1,4 +1,6 @@
 namespace :dev do
+
+
   task fake: :environment do
     Restaurant.destroy_all
 

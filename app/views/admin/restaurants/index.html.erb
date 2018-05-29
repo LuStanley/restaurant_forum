@@ -14,14 +14,16 @@
         <thead>
           <tr>
             <th>ID</th>
+            <th>Category</th>
             <th>Name</th>
             <th>Actions</th>
           </tr>
-       </thead>
+        </thead>
         <tbody>
          <% @restaurants.each do |restaurant| %>
           <tr>
             <th scope="row"><%= restaurant.id %></th>
+            <td><%= restaurant.category.name %></td>
             <td><%= restaurant.name %></td>
             <td>
               <%= link_to 'Show', admin_restaurant_path(restaurant) %>
@@ -31,6 +33,7 @@
           </tr>
           <% end %>
         </tbody>
+      </table>
       <div class="text-center">
         <%= paginate @restaurants %>
       </div>
