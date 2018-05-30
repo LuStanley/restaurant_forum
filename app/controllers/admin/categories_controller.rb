@@ -7,7 +7,12 @@ class Admin::CategoriesController < ApplicationController
     #@page = params[:page] || 1
     #@restaurants=Restaurant.order("updated_at DESC").page(params[:page]).per(10)
     @categories = Category.page(params[:page]).per(10)
-    @category = Category.new
+
+    if params[:id]
+      @category = Category.find(params[:id])
+    else
+      @category = Category.new
+    end
   end
 
   def create
@@ -19,6 +24,19 @@ class Admin::CategoriesController < ApplicationController
       flash[:alert] = "category was failed to create"
       @categories = Category.all.page(params[:page]).per(10)
       render :index
+    end
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    if @category.update(category_params)
+      flash[:notice] = "category was successfully updated"
+
+      redirect_to admin_categories_path
+    else
+      @categories = Category.page(params[:page]).per(10)
+      flash[:alert] = "category was failed to updated"
+      redirect_to admin_categories_path
     end
   end
 
