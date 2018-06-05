@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="show_page_display">
-      <div class="col-md-10 col-md-offset-1 ">
+    <!-- <div class="show_page_display"> -->
+      <div class="col-md-10 col-md-offset-1">
         <div class="col-md-3 col-sm-4">
           <div class="text-center">
           <% if @user.avatar? %>
@@ -28,10 +28,9 @@
           <% end %>
         </div>
       </div>
-    </div>
-    <hr size="8px" align="center" width="100%">
-
-    <% @users.each do |user| %>
+    <!-- </div> -->
+<!-- show all users profile -->
+    <!-- <% @users.each do |user| %>
       <div class="show_page_display">
         <div class="col-md-10 col-md-offset-1">
           <div class="col-md-3 col-sm-4">
@@ -58,8 +57,8 @@
           </div>
         </div>
       </div>
-     <hr size="8px" align="center" width="100%" >  
-    <% end %>
+     <hr>
+    <% end %> -->
 
   </div>
 </div>
