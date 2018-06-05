@@ -29,7 +29,7 @@
 }
 
 
-.show_page_display {
+.user_profile {
   display: inline-block;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -37,4 +37,17 @@
 
 .edit_user img {
   margin-bottom: 10px;
+}
+
+
+.my-restaurant {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.my-restaurant image{
+  max-height: 180px;
+  width: auto;
 }

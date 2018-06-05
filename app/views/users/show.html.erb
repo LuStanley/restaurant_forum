@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
-    <!-- <div class="show_page_display"> -->
+    <div class="user_profile">
       <div class="col-md-10 col-md-offset-1">
         <div class="col-md-3 col-sm-4">
           <div class="text-center">
-          <% if @user.avatar? %>
-            <%= image_tag @user.avatar, class: "img-responsive img-rounded" %>
-          <% else %>
-            <img src="http://via.placeholder.com/350x350" class="img-responsive img-rounded">
-          <% end %>
+            <% if @user.avatar? %>
+              <%= image_tag @user.avatar, class: "img-responsive img-rounded" %>
+            <% else %>
+              <img src="http://via.placeholder.com/350x350" class="img-responsive img-rounded">
+            <% end %>
           </div>
         </div>
         <div class="col-md-9 col-sm-8 ">
@@ -28,37 +28,24 @@
           <% end %>
         </div>
       </div>
-    <!-- </div> -->
-<!-- show all users profile -->
-    <!-- <% @users.each do |user| %>
-      <div class="show_page_display">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="col-md-3 col-sm-4">
-            <div class="text-center">
-              <% if user.avatar? %>
-                <%= image_tag user.avatar, class: "img-responsive img-rounded" %>
-              <% else %>
-                <img src="http://via.placeholder.com/350x350" class="img-responsive img-rounded">
-              <% end %>
-            </div>
-          </div>
-          <div class="col-md-9 col-sm-8 ">
-            <% if user.name? %>
-              <h2><%= user.name %></h2>
-            <% else %>
-              <h2><%= user.email.split('@').first %></h2>
-            <% end %>
-            <p><strong><%= user.email %></strong></p>
-            <% if @user.intro? %>
-              <div><%= user.intro %></div>
-            <% else %>
-              <div><h3>Please introduce yourself!!</h3></div>
-            <% end %>
-          </div>
-        </div>
+    </div>
+    <hr>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Count commented restaurants</h3>
       </div>
-     <hr>
-    <% end %> -->
+      <div class="panel-body">
+        <% @commented_restaurants.each do |restaurant|%>
+          <div calss="my-restaurant">
+            <%= link_to restaurant_path(restaurant) do %>
+              <%= image_tag restaurant.image, class: "img-responsive center-block" %>
+              <h2><%= restaurant.name %></h2>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
   </div>
 </div>

@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @users = User.all
+    @commented_restaurants = @user.restaurants.uniq
+    # @users = User.all
   end
 
   def edit
