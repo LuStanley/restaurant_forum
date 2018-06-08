@@ -41,13 +41,16 @@
 
 
 .my-restaurant {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 4px;
-  margin-bottom: 20px;
+  display: inline-block;
+  text-align: center;
+  padding: 7px 7px 0 7px;
 }
 
-.my-restaurant image{
-  max-height: 180px;
-  width: auto;
+.my-restaurant > div {
+  height: 60px;
+}
+
+.my-restaurant img {
+  max-height: 100%;
+
 }
