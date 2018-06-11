@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <ul class="nav nav-pills">
+        <li role="presentation" ><%= link_to "RestAuranTalk", root_path %></li>
+        <li role="presentation" class="active"><%= link_to "Latest News", feeds_restaurants_path %></li>
+      </ul>
+    </div>
+
+    <div class="col-md-10 col-md-offset-1">
+      <h2 class="text-align">Restaurants Latest News</h2>
+      <hr>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">Latest Restaurants</div>
+          <div class="panel-body">
+            <% @recent_restaurants.each do |restaurant| %>
+              <h2>
+                <%= link_to restaurant.name, restaurant_path(restaurant) %>
+                <small><%= restaurant.category.name %></small>
+              </h2>
+              <p><%= truncate(restaurant.description, length: 100)%></p>
+              <hr>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">Latest Comments</div>
+          <div class="panel-body">
+            <% @recent_comments.each do |comment| %>
+              <h2><%= link_to comment.restaurant.name, restaurant_path(comment.restaurant) %></h2>
+              <h5>
+                <%= comment.content %>
+                 - by
+                <%= link_to comment.user.name, user_path(comment.user) %>
+              </h5>
+              <hr>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
