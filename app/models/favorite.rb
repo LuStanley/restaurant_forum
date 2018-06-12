@@ -1,5 +1,5 @@
 class Favorite < ApplicationRecord
-  belongs_to :User
+  belongs_to :user
   belongs_to :restaurant
 
 end
