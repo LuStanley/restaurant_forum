@@ -20,6 +20,12 @@ Rails.application.routes.draw do
       post :favorite
       post :unfavorite
     end
+
+    member do
+      post :like
+      post :dislike
+    end
+
   end
 
 
