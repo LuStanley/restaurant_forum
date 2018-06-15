@@ -11,4 +11,12 @@ class FollowshipsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
+  def destroy
+    # 當使用 where 方法時，無論資料有幾筆，他都會回傳一組物件集合（也就是陣列）
+    @followship = current_user.followships.where(following_id: params[:id])
+    @followship.destroy_all
+    flash[:alert] = "followship destroyed"
+    redirect_back(fallback_location: root_path)
+  end
 end
