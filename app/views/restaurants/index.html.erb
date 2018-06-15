@@ -8,6 +8,13 @@
         <% end %>
       </ul>
     </div>
+    <div class="nav-tabs-center">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><%= link_to "RestAuranTalk", root_path %></li>
+        <li role="presentation" ><%= link_to "Latest News", feeds_restaurants_path %></li>
+        <li role="presentation" ><%= link_to "Followings", users_path %></li>
+      </ul>
+    </div>
     <!--import partial file-->
     <%= render partial: "shared/restaurant_list" %>
 

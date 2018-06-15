@@ -1,8 +1,24 @@
-<ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.name %>
-      <%= render partial: "shared/follow", locals: {user: user}%>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="nav-tabs-center">
+      <ul class="nav nav-tabs">
+        <li role="presentation" ><%= link_to "RestAuranTalk", root_path %></li>
+        <li role="presentation" ><%= link_to "Latest News", feeds_restaurants_path %></li>
+        <li role="presentation" class="active"><%= link_to "Followings", users_path %></li>
+      </ul>
+    </div>
+    <div class="col-md-10 col-md-offset-1 user-item">
+      <h2 class="text-align">Followings</h2>
+      <hr>
+      <% @users.each do |user| %>
+        <div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
+          <%= link_to user_path(user) do%>
+            <%= image_tag(user.avatar, class: "img-rounded") %>
+            <h4><%= user.name %></h4>
+          <% end %>
+          <%= render partial: "shared/follow", locals: {user: user} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
