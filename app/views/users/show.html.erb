@@ -31,41 +31,62 @@
     </div>
     <hr>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @commented_restaurants.count %>  Commented Restaurants</h3>
-      </div>
-      <div class="panel-body">
-        <% @commented_restaurants.each do |restaurant|%>
-          <%= link_to restaurant_path(restaurant) do %>
-            <div class="my-restaurant">
-              <div>
-                <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
-              </div>
-              <h3><%= restaurant.name %></h3>
-            </div>
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= current_user.followings.count %>  followings</h3>
+        </div>
+        <ul class="list-group">
+          <% current_user.followings.each do |following|%>
+            <%= link_to user_path(following) do %>
+              <li class="list-group-item">
+                <%= image_tag following.avatar %>
+                <%= following.email.split('@').first %>
+              </li>
+            <% end %>
+            <hr>
           <% end %>
-        <% end %>
+        </ul>
+
       </div>
     </div>
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= current_user.favorited_restaurants.count %>  Favorited Restaurants</h3>
-      </div>
-      <div class="panel-body">
-        <% current_user.favorited_restaurants.each do |restaurant|%>
-          <%= link_to restaurant_path(restaurant) do %>
-            <div class="my-restaurant">
-              <div>
-                <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+    <div class="col-md-7 ">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= @commented_restaurants.count %>  Commented Restaurants</h3>
+        </div>
+        <div class="panel-body">
+          <% @commented_restaurants.each do |restaurant|%>
+            <%= link_to restaurant_path(restaurant) do %>
+              <div class="my-restaurant">
+                <div>
+                  <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+                </div>
+                <h3><%= restaurant.name %></h3>
               </div>
-              <h3><%= restaurant.name %></h3>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= current_user.favorited_restaurants.count %>  Favorited Restaurants</h3>
+        </div>
+        <div class="panel-body">
+          <% current_user.favorited_restaurants.each do |restaurant|%>
+            <%= link_to restaurant_path(restaurant) do %>
+              <div class="my-restaurant">
+                <div>
+                  <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+                </div>
+                <h3><%= restaurant.name %></h3>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
