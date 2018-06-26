@@ -40,8 +40,12 @@
           <% current_user.followings.each do |following|%>
             <%= link_to user_path(following) do %>
               <li class="list-group-item">
-                <%= image_tag following.avatar %>
-                <%= following.email.split('@').first %>
+                <% if following.avatar?%>
+                  <%= image_tag following.avatar %>
+                <% else %>
+                  <img src="http://via.placeholder.com/350x350" >
+                <% end %>
+                <%= following.name %>
               </li>
             <% end %>
             <hr>
@@ -58,8 +62,12 @@
           <% current_user.followers.each do |follower|%>
             <%= link_to user_path(follower) do %>
               <li class="list-group-item">
-                <%= image_tag follower.avatar %>
-                <%= follower.email.split('@').first %>
+                <% if follower.avatar? %>
+                  <%= image_tag follower.avatar %>
+                <% else %>
+                  <img src="http://via.placeholder.com/350x350" >
+                <% end %>
+                <%= follower.name %>
               </li>
             <% end %>
             <hr>
