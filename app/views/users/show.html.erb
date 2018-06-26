@@ -49,6 +49,25 @@
         </ul>
 
       </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= current_user.followers.count %>  followers</h3>
+        </div>
+        <ul class="list-group">
+          <% current_user.followers.each do |follower|%>
+            <%= link_to user_path(follower) do %>
+              <li class="list-group-item">
+                <%= image_tag follower.avatar %>
+                <%= follower.email.split('@').first %>
+              </li>
+            <% end %>
+            <hr>
+          <% end %>
+        </ul>
+
+      </div>
+
     </div>
 
     <div class="col-md-7 ">
