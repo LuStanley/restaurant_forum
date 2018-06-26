@@ -49,5 +49,23 @@
       </div>
     </div>
 
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= current_user.favorited_restaurants.count %>  Favorited Restaurants</h3>
+      </div>
+      <div class="panel-body">
+        <% current_user.favorited_restaurants.each do |restaurant|%>
+          <%= link_to restaurant_path(restaurant) do %>
+            <div class="my-restaurant">
+              <div>
+                <%= image_tag restaurant.image, class: "img-responsive img-rounded" %>
+              </div>
+              <h3><%= restaurant.name %></h3>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
